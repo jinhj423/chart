@@ -49,12 +49,13 @@ body {
 }
 
 .left-sidebar, .right-sidebar {
-    width: 250px;
+    width: 280px; /* Slightly wider sidebar */
     background-color: var(--pane-bg-color);
     padding: 15px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
+    flex-shrink: 0; /* Prevent sidebars from shrinking */
 }
 
 .left-sidebar {
@@ -70,6 +71,7 @@ body {
     font-size: 18px;
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 #curriculum-list {
@@ -78,25 +80,81 @@ body {
     margin: 0;
 }
 
-#curriculum-list li {
+/* Step Header Styling */
+.step-header {
     padding: 10px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-color);
     border-radius: 4px;
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--border-color); /* Slightly darker background for headers */
+    user-select: none; /* Prevent text selection on click */
 }
 
-#curriculum-list li:hover {
+.step-header:hover {
     background-color: var(--hover-color);
 }
 
-#curriculum-list li.active {
-    background-color: var(--active-color);
-    color: #fff;
+.step-header::after {
+    content: '▶'; /* Right arrow for collapsed */
+    font-size: 12px;
+    margin-left: 10px;
+    transition: transform 0.2s ease-in-out;
 }
 
+.step-header.expanded::after {
+    content: '▼'; /* Down arrow for expanded */
+    transform: rotate(0deg); /* Explicitly set for consistency */
+}
+
+/* Sub-Lesson List Styling */
+.sub-lesson-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: 15px; /* Indent sub-lessons */
+    max-height: 500px; /* Max height for transition - adjust as needed */
+    overflow: hidden; /* Hide overflow when collapsed */
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out; /* Smooth transition */
+    opacity: 1;
+}
+
+.sub-lesson-list.collapsed {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden; /* Ensure it's not interactive when collapsed */
+}
+
+/* Lesson Item Styling */
+.lesson-item {
+    padding: 8px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    margin-top: 2px;
+    color: var(--text-color);
+}
+
+.lesson-item:hover {
+    background-color: var(--hover-color);
+}
+
+.lesson-item.active {
+    background-color: var(--active-color);
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Main Content and Chart */
 .main-content {
     flex-grow: 1;
     position: relative; /* For chart positioning */
+    background-color: var(--bg-color); /* Chart background */
 }
 
 #chart-container {
@@ -105,9 +163,12 @@ body {
     height: 100%;
 }
 
+/* Lesson Details Panel */
 #lesson-details h3 {
     font-size: 16px;
     margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--text-color);
 }
 
 #lesson-details p {
