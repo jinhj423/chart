@@ -1,1 +1,117 @@
-/* Add styles here */
+:root {
+    --bg-color: #131722;
+    --pane-bg-color: #1e222d;
+    --text-color: #d1d4dc;
+    --border-color: #363a45;
+    --hover-color: #2a2e39;
+    --active-color: #2962ff;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.top-toolbar {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    height: 40px;
+    background-color: var(--pane-bg-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.toolbar-item {
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.toolbar-item:hover {
+    background-color: var(--hover-color);
+    border-radius: 4px;
+}
+
+.main-layout {
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.left-sidebar, .right-sidebar {
+    width: 250px;
+    background-color: var(--pane-bg-color);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.left-sidebar {
+    border-right: 1px solid var(--border-color);
+}
+
+.right-sidebar {
+    border-left: 1px solid var(--border-color);
+}
+
+.left-sidebar h2, .right-sidebar h2 {
+    margin-top: 0;
+    font-size: 18px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+#curriculum-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#curriculum-list li {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+#curriculum-list li:hover {
+    background-color: var(--hover-color);
+}
+
+#curriculum-list li.active {
+    background-color: var(--active-color);
+    color: #fff;
+}
+
+.main-content {
+    flex-grow: 1;
+    position: relative; /* For chart positioning */
+}
+
+#chart-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#lesson-details h3 {
+    font-size: 16px;
+    margin-top: 0;
+}
+
+#lesson-details p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #b2b5be;
+}

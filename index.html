@@ -1,14 +1,39 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>차트 교육 사이트</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lightweight-Charts™ CDN -->
+    <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <div class="app-container">
+        <div class="top-toolbar">
+            <div class="toolbar-item">파일</div>
+            <div class="toolbar-item">차트 유형</div>
+            <div class="toolbar-item">지표</div>
+        </div>
+        <div class="main-layout">
+            <div class="left-sidebar">
+                <h2>커리큘럼</h2>
+                <ul id="curriculum-list">
+                    <!-- JavaScript로 동적 생성 -->
+                </ul>
+            </div>
+            <div class="main-content">
+                <div id="chart-container"></div>
+            </div>
+            <div class="right-sidebar">
+                <h2>세부 정보</h2>
+                <div id="lesson-details">
+                    <h3 id="lesson-title"></h3>
+                    <p id="lesson-description"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
 </body>
 </html>
